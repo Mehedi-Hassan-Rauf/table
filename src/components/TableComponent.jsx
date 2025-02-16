@@ -80,9 +80,9 @@ const TableComponent = () => {
         <Button
           key={index}
           onClick={() => handleChangePage(num)}
-          disabled={num === page || pageLoading}
-          className={`px-3 py-1 ${
-            num === page ? 'bg-blue-500 text-white' : 'bg-gray-200'
+          // disabled={num === page || pageLoading}
+          className={`px-3 py-1 hover:bg-cyan-700 ${
+            num === page ? 'bg-cyan-700 text-white' : 'bg-gray-200 text-black hover:text-white'
           }`}
         >
           {num}
