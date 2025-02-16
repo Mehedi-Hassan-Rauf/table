@@ -81,8 +81,8 @@ const TableComponent = () => {
           key={index}
           onClick={() => handleChangePage(num)}
           // disabled={num === page || pageLoading}
-          className={`px-3 py-1 hover:bg-cyan-700 ${
-            num === page ? 'bg-cyan-700 text-white' : 'bg-gray-200 text-black hover:text-white'
+          className={`px-3 py-1 hover:bg-cyan-700 max-sm:text-[10px] max-sm:px-2 ${
+            num === page ? 'bg-cyan-700 text-white cursor-none' : 'bg-gray-200 text-black hover:text-white'
           }`}
         >
           {num}
@@ -136,6 +136,7 @@ const TableComponent = () => {
               <Button
                 onClick={() => handleChangePage(page - 1)}
                 disabled={page === 1 || pageLoading}
+                className="max-sm:text-[10px] max-sm:p-3"
               >
                 Previous
               </Button>
@@ -143,6 +144,7 @@ const TableComponent = () => {
               <Button
                 onClick={() => handleChangePage(page + 1)}
                 disabled={page === totalPages || pageLoading}
+                className="max-sm:text-[10px] max-sm:p-3"
               >
                 Next
               </Button>
