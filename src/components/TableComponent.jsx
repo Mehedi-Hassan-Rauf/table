@@ -132,23 +132,49 @@ const TableComponent = () => {
       <TableFooter>
         <TableRow>
           <TableCell colSpan={10}>
-            <div className="flex justify-center gap-2 items-center mt-4">
-              <Button
-                onClick={() => handleChangePage(page - 1)}
-                disabled={page === 1 || pageLoading}
-                className="max-sm:text-[10px] max-sm:p-3"
+          <div className="flex justify-end mt-10 gap-2">
+            <Button 
+              className="bg-white text-black font-bold border border-gray-400" 
+              disabled={page === 1} 
+              onClick={() => setPage(page - 1)}
+            >
+              Prev
+            </Button>
+
+            {/* First 3 Pages */}
+            {[...Array(Math.min(3, totalPages))].map((_, i) => (
+              <Button 
+                key={i} 
+                className={`hover:bg-[#64439A] ${page === i + 1 ? 'bg-[#64439A] text-white' : 'bg-white text-black hover:text-white border border-gray-400'} font-bold`} 
+                onClick={() => setPage(i + 1)}
               >
-                Previous
+                {i + 1}
               </Button>
-              {renderPagination()}
-              <Button
-                onClick={() => handleChangePage(page + 1)}
-                disabled={page === totalPages || pageLoading}
-                className="max-sm:text-[10px] max-sm:p-3"
+            ))}
+
+            {/* Ellipsis if more pages exist */}
+            {totalPages > 4 && (
+              <span className="px-2 text-gray-500">...</span>
+            )}
+
+            {/* Last Page */}
+            {totalPages > 3 && (
+              <Button 
+                className={`hover:bg-[#64439A] ${page === totalPages ? 'bg-[#64439A] text-white' : 'bg-white text-black hover:text-white border border-gray-400'} font-bold`} 
+                onClick={() => setPage(totalPages)}
               >
-                Next
+                {totalPages}
               </Button>
-            </div>
+            )}
+
+            <Button 
+              className="bg-white text-black font-bold border border-gray-400" 
+              disabled={page === totalPages} 
+              onClick={() => setPage(page + 1)}
+            >
+              Next
+            </Button>
+          </div>
           </TableCell>
         </TableRow>
       </TableFooter>
