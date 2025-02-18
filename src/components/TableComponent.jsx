@@ -134,7 +134,7 @@ const TableComponent = () => {
           <TableCell colSpan={10}>
           <div className="flex justify-end mt-10 gap-2">
             <Button 
-              className="bg-white text-black font-bold border border-gray-400" 
+              className="bg-white hover:bg-[#64439A] hover:text-white text-black font-bold border border-gray-400" 
               disabled={page === 1} 
               onClick={() => setPage(page - 1)}
             >
@@ -168,7 +168,7 @@ const TableComponent = () => {
             )}
 
             <Button 
-              className="bg-white text-black font-bold border border-gray-400" 
+              className="hover:bg-[#64439A] hover:text-white bg-white text-black font-bold border border-gray-400" 
               disabled={page === totalPages} 
               onClick={() => setPage(page + 1)}
             >
